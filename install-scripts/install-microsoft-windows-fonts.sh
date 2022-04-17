@@ -12,7 +12,7 @@ wget https://cdn.discordapp.com/attachments/910521923044274268/96382724590917633
 
 # Check if the original file has the same hash as the downloaded one.
 font_hash_down=$(sha256sum $file_name)
-if [ ! "$font_hash_down" == "$font_hash_local" ]; then
+if [[ ! "$font_hash_down" == "$font_hash_local" ]]; then
     rm $file_name
     echo
     echo "$(tput smso)$(tput setaf 1)************** File hash does't match, exiting... **************$(tput sgr0)"
