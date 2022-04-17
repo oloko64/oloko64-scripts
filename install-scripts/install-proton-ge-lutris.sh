@@ -9,11 +9,11 @@ hardcode_unvariable_name="wine-lutris-GE-"
 file="${1##*/}"
 
 # Check if the file was specified in the arguments.
-[ "$file" == "" ] && echo "$(tput setaf 3)************** No file specified, exiting... **************$(tput sgr0)" && echo && exit 1
+[[ "$file" == "" ]] && echo "$(tput setaf 3)************** No file specified, exiting... **************$(tput sgr0)" && echo && exit 1
 
 # Get the unvariable name from the file name and checks if it is valid.
 unvariable_name=$(echo "$file" | awk -F"Proton" '{print $1}')
-[ ! "$unvariable_name" == "$hardcode_unvariable_name" ] && echo "$(tput setaf 3)************** File name does not match the pattern, exitting... **************$(tput sgr0)" && echo && exit 1
+[[ ! "$unvariable_name" == "$hardcode_unvariable_name" ]] && echo "$(tput setaf 3)************** File name does not match the pattern, exitting... **************$(tput sgr0)" && echo && exit 1
 
 # Gets the file name without the extension name.
 file_name=$(echo "$file" | cut -f 1 -d '.')
@@ -32,7 +32,7 @@ sha512sum_github=$(cat "$file_name.sha512sum")
 sha512sum_file=$(sha512sum $file)
 
 # Delete files and exit in case of mismatch hash.
-if [ "$sha512sum_github" != "$sha512sum_file" ]; then
+if [[ "$sha512sum_github" != "$sha512sum_file" ]]; then
     echo
     echo "$(tput smso)$(tput setaf 1)************** Hash mismatch, check the file before installing it... **************$(tput sgr0)"
     echo
