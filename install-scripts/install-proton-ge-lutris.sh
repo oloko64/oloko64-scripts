@@ -5,8 +5,8 @@ echo
 # The pattern that the Lutris GE uses in the file name.
 hardcode_unvariable_name="wine-lutris-GE-"
 
-# The first argument from the user.
-file="$1"
+# The first argument from the user without the path.
+file="${1##*/}"
 
 # Check if the file was specified in the arguments.
 [ "$file" == "" ] && echo "$(tput setaf 3)************** No file specified, exiting... **************$(tput sgr0)" && echo && exit 1
