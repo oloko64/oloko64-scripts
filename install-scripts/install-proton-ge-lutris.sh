@@ -47,6 +47,7 @@ echo "$(tput smso)$(tput setaf 2)************** Hash match, proceding with insta
 echo
 sleep 2
 tar -xJvf "$file"
+mkdir -p "$HOME/.local/share/lutris/runners/wine/"
 mv "$folder_name" "$HOME/.local/share/lutris/runners/wine/"
 echo
 echo "$(tput smso)$(tput setaf 2)************** $folder_name is installed successfully... **************$(tput sgr0)"
