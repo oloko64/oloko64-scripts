@@ -1,19 +1,27 @@
 #!/bin/bash
 
 green_message() {
+    echo
     echo "$(tput setaf 2)************** $1 **************$(tput sgr0)"
+    echo
 }
 
 green_message_strong() {
+    echo
     echo "$(tput smso)$(tput setaf 2)************** $1 **************$(tput sgr0)"
+    echo
 }
 
 yellow_message() {
+    echo
     echo "$(tput setaf 3)************** $1 **************$(tput sgr0)"
+    echo
 }
 
 red_message_strong() {
+    echo
     echo "$(tput smso)$(tput setaf 1)************** $1 **************$(tput sgr0)"
+    echo
 }
 
 # The pattern that the Lutris GE uses in the file name.
