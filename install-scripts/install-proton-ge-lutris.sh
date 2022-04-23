@@ -43,10 +43,14 @@ file_name=$(echo "$file" | cut -f 1 -d '.')
 # Gets the folder name to be used after the file extraction.
 folder_name=$(echo "$file_name" | awk -F"wine-" '{print $2}')
 
+# Extract the version of the file from the file name.
+version_name=$(echo "$file_name" | awk -F"wine-lutris-" '{print $2}')
+final_version_name=$(echo "$version_name" | awk -F"-x86_64" '{print $1}')
+
 # Verification of the integrity of the file.
 green_message "Verifiying file hash with github hash..."
 echo "$folder_name"
-wget "https://github.com/GloriousEggroll/wine-ge-custom/releases/download/GE-Proton7-8/$file_name.sha512sum"
+wget "https://github.com/GloriousEggroll/wine-ge-custom/releases/download/$final_version_name/$file_name.sha512sum"
 echo
 sha512sum_github=$(cat "$file_name.sha512sum")
 sha512sum_file=$(sha512sum $file)
